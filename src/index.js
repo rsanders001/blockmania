@@ -24,7 +24,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import Edit from './edit';
+import edit from './edit';
 import save from './save';
 
 /**
@@ -32,7 +32,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( 'rs-blockmanialab/rs-blockmanialab', {
+registerBlockType( 'rs-blockmanialab/testimonial', {
 	/**
 	 * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
 	 */
@@ -73,10 +73,14 @@ registerBlockType( 'rs-blockmanialab/rs-blockmanialab', {
 		html: false,
 	},
 
+	keywords: ['blockmania',
+		__('testimonials'),
+		__('review'), 'rs'],
+
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
+	edit: edit,
 
 	/**
 	 * @see ./save.js
