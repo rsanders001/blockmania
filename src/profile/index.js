@@ -97,11 +97,12 @@ registerBlockType( 'tk-blockmania/profile', {
 			source: 'text',
 			selector: '.author',
 		},
-		location: {
+		heading1: {
 			type: 'string',
-			source: 'text',
+			source: 'html',
 			selector: '.location',
 		},
+
 		backgroundColor:{
 			type: 'string',
 		},

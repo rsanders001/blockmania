@@ -63,24 +63,14 @@ export default function edit({attributes, setAttributes}) {
 
 			</InspectorControls>
 
-			<TKRatingSelect
-				value={ attributes.stars }
-				onChange={ ( stars ) => { setAttributes( { stars: parseInt(stars) } ) } }
-			/>
+
 
 			<RichText
 				tagName="h2" // The tag here is the element output and editable in the admin
-				value={ attributes.name } // Any existing content, either from the database or an attribute default
+				value={ attributes.heading1 } // Any existing content, either from the database or an attribute default
 				allowedFormats={ [ 'core/bold', 'core/italic' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
 				onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
-				placeholder="Enter Name"// Display this text before any content has been added by the user
-			/>
-			<RichText
-				tagName="h3" // The tag here is the element output and editable in the admin
-				value={ attributes.name } // Any existing content, either from the database or an attribute default
-				allowedFormats={ [ 'core/bold', 'core/italic' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
-				onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
-				placeholder="Subheadding "// Display this text before any content has been added by the user
+				placeholder="Enter Title"// Display this text before any content has been added by the user
 			/>
 
 			<PlainText

@@ -761,17 +761,10 @@ function edit(_ref) {
     initialOpen: true
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: "Test"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "Some more stuff here."))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_common_TKRatingSelect__WEBPACK_IMPORTED_MODULE_5__["TKRatingSelect"], {
-    value: attributes.stars,
-    onChange: function onChange(stars) {
-      setAttributes({
-        stars: parseInt(stars)
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "Some more stuff here."))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     tagName: "h2" // The tag here is the element output and editable in the admin
     ,
-    value: attributes.name // Any existing content, either from the database or an attribute default
+    value: attributes.heading1 // Any existing content, either from the database or an attribute default
     ,
     allowedFormats: ['core/bold', 'core/italic'] // Allow the content to be made bold or italic, but do not allow other formatting options
     ,
@@ -781,22 +774,7 @@ function edit(_ref) {
       });
     } // Store updated content as a block attribute
     ,
-    placeholder: "Enter Name" // Display this text before any content has been added by the user
-
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    tagName: "h3" // The tag here is the element output and editable in the admin
-    ,
-    value: attributes.name // Any existing content, either from the database or an attribute default
-    ,
-    allowedFormats: ['core/bold', 'core/italic'] // Allow the content to be made bold or italic, but do not allow other formatting options
-    ,
-    onChange: function onChange(quote) {
-      return setAttributes({
-        quote: quote
-      });
-    } // Store updated content as a block attribute
-    ,
-    placeholder: "Subheadding " // Display this text before any content has been added by the user
+    placeholder: "Enter Title" // Display this text before any content has been added by the user
 
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PlainText"], {
     className: "location",
@@ -950,9 +928,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('tk-
       source: 'text',
       selector: '.author'
     },
-    location: {
+    heading1: {
       type: 'string',
-      source: 'text',
+      source: 'html',
       selector: '.location'
     },
     backgroundColor: {
@@ -1033,9 +1011,7 @@ function save(_ref) {
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save({
     style: divStyles
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "stars"
-  }, starIcons), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
     tagName: "div",
     className: "quote",
     value: attributes.quote
@@ -1046,13 +1022,9 @@ function save(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
     src: attributes.imgUrl,
     alt: 'Photo of _____'
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "text"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
-    className: "author"
-  }, attributes.author), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
     className: "location"
-  }, attributes.location))));
+  }, attributes.location)));
 }
 
 /***/ }),
