@@ -5,12 +5,19 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-tk-blockmania-testimonial {
+.wp-block-tk-blockmania-profile {
   border: .1em solid #aaaaaa;
   border-radius: .5em;
   color: black;
   margin: 0 auto;
   background-color: #F3F3F3;
+
+  .show{
+	  display:block;
+  }
+  .hide{
+	  display:none;
+  }
 
   .stars {
 	text-align: center;

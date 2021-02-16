@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, RichText, MediaUpload, MediaUploadCheck, PlainText,
 		InspectorControls} from '@wordpress/block-editor';
-import {SelectControl, PanelBody} from '@wordpress/components';
+import {SelectControl, PanelBody, ToggleControl} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -46,6 +46,8 @@ export default function edit({attributes, setAttributes}) {
 	let divStyles = {
 		backgroundColor: attributes.backgroundColor,
 		color: attributes.textColor,
+
+
 	}
 
 
@@ -57,27 +59,34 @@ export default function edit({attributes, setAttributes}) {
 					setAttributes={setAttributes}
 					initialOpen={true}
 				/>
-				<PanelBody title="Test">
-					<p>Some more stuff here.</p>
+				<PanelBody title="Edit Layout">
+
+					<SelectControl
+						label={ __( 'Show Subheading' ) }
+						value={ attributes.showSubheading }
+						onChange={ (showSubheading) => { setAttributes( { showSubheading } ) } }
+						options={[
+								{value: 'show', label: 'Show Subheading'},
+								{value: 'hide', label: 'Hide Subheading'}
+								]}/>
 				</PanelBody>
 
 			</InspectorControls>
 
 
 
-			<RichText
-				tagName="h2" // The tag here is the element output and editable in the admin
+			<PlainText
+				className="head" // The tag here is the element output and editable in the admin
 				value={ attributes.heading1 } // Any existing content, either from the database or an attribute default
-				allowedFormats={ [ 'core/bold', 'core/italic' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
-				onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
-				placeholder="Enter Title"// Display this text before any content has been added by the user
+				onChange={ ( heading1 ) => setAttributes( { heading1 } ) }
+				placeholder="Head"
 			/>
 
 			<PlainText
-				className="location"
+				className={"location " + attributes.showSubheading}
 				value={attributes.location}
 				onChange={ ( location ) => setAttributes( { location } ) }
-				placeholder="Subheading 2"
+				placeholder="Subheading"
 			/>
 
 
@@ -87,7 +96,7 @@ export default function edit({attributes, setAttributes}) {
 						<MediaUpload
 							allowedTypes={['image']}
 							onSelect={ ( img ) => setAttributes( { imgUrl: img.sizes.thumbnail.url } ) }
-							render={ ({open}) => <img src={attributes.imgUrl} onClick={open}/>}
+							render={ ({open}) => <img src={attributes.imgUrl} onClick={open}  />}
 						/>
 					</MediaUploadCheck>
 				</div>

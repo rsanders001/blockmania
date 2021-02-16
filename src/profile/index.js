@@ -99,8 +99,9 @@ registerBlockType( 'tk-blockmania/profile', {
 		},
 		heading1: {
 			type: 'string',
-			source: 'html',
-			selector: '.location',
+		},
+		location:{
+			type: 'string'
 		},
 
 		backgroundColor:{
@@ -108,6 +109,9 @@ registerBlockType( 'tk-blockmania/profile', {
 		},
 		textColor:{
 			type: 'string',
+		},
+		showSubheading:{
+			type:'string'
 		},
 	},
 

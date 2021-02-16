@@ -34,17 +34,15 @@ export default function save( {attributes} ) {
 
 	return (
 		<div { ...useBlockProps.save({style: divStyles}) }>
-			<RichText.Content tagName="div" className="quote" value={ attributes.quote } />
-			<div className="quote-profile">
-				<div className="photo">
-					<img src={attributes.imgUrl} alt={'Photo of _____'}/>
-				</div>
 
-					<h2></h2>
-					<h3></h3>
-					<p className="location">{ attributes.location }</p>
 
+				<img src={attributes.imgUrl} alt={'Photo of _____'}/>
+
+				<p className="head">{attributes.heading1}</p>
+			<div className={attributes.showSubheading}>
+				<p className="location">{ attributes.location }</p>
 			</div>
+
 		</div>
 	);
 }

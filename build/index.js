@@ -760,31 +760,42 @@ function edit(_ref) {
     setAttributes: setAttributes,
     initialOpen: true
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: "Test"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "Some more stuff here."))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-    tagName: "h2" // The tag here is the element output and editable in the admin
+    title: "Edit Layout"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Show Subheading'),
+    value: attributes.showSubheading,
+    onChange: function onChange(showSubheading) {
+      setAttributes({
+        showSubheading: showSubheading
+      });
+    },
+    options: [{
+      value: 'show',
+      label: 'Show Subheading'
+    }, {
+      value: 'hide',
+      label: 'Hide Subheading'
+    }]
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PlainText"], {
+    className: "head" // The tag here is the element output and editable in the admin
     ,
     value: attributes.heading1 // Any existing content, either from the database or an attribute default
     ,
-    allowedFormats: ['core/bold', 'core/italic'] // Allow the content to be made bold or italic, but do not allow other formatting options
-    ,
-    onChange: function onChange(quote) {
+    onChange: function onChange(heading1) {
       return setAttributes({
-        quote: quote
+        heading1: heading1
       });
-    } // Store updated content as a block attribute
-    ,
-    placeholder: "Enter Title" // Display this text before any content has been added by the user
-
+    },
+    placeholder: "Head"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PlainText"], {
-    className: "location",
+    className: "location " + attributes.showSubheading,
     value: attributes.location,
     onChange: function onChange(location) {
       return setAttributes({
         location: location
       });
     },
-    placeholder: "Subheading 2"
+    placeholder: "Subheading"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "quote-profile"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -929,14 +940,18 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('tk-
       selector: '.author'
     },
     heading1: {
-      type: 'string',
-      source: 'html',
-      selector: '.location'
+      type: 'string'
+    },
+    location: {
+      type: 'string'
     },
     backgroundColor: {
       type: 'string'
     },
     textColor: {
+      type: 'string'
+    },
+    showSubheading: {
       type: 'string'
     }
   },
@@ -1011,18 +1026,14 @@ function save(_ref) {
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save({
     style: divStyles
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
-    tagName: "div",
-    className: "quote",
-    value: attributes.quote
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "quote-profile"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "photo"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
     src: attributes.imgUrl,
     alt: 'Photo of _____'
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+    className: "head"
+  }, attributes.heading1), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: attributes.showSubheading
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
     className: "location"
   }, attributes.location)));
 }
