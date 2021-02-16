@@ -27,11 +27,25 @@ export default function save({attributes}) {
 	let starIcons = Array(5)
 		.fill('&#9733;', 0, attributes.stars)
 		.join('');
+	let divStyles ={
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.color,
+		backgroundColor2: attributes.backgroundColor2,
+		color2: attributes.color2,
+	}
 	return (
-		<div { ...useBlockProps.save() }>
+		<div { ...useBlockProps.save({style: divStyles}) }>
 			<div className="stars">{starIcons}</div>
 			<RichText.Content tagName="div" className="quote" value={ attributes.quote } />
-			<img src={attributes.imgURL}/>
+			<div className="quote-profile">
+			<div className="photo">
+				<img src={attributes.imgURL}/>
+			</div>
+			<div className="text">
+				<p className="author">{attributes.author}</p>
+				<p className="location">{attributes.location}</p>
+			</div>
+			</div>
 		</div>
 	);
 }

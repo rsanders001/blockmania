@@ -4,29 +4,29 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-rs-blockmanialab-testimonial {
+.wp-block-tk-blockmania-testimonial {
   border: 0.1em solid #aaaaaa;
   border-radius: 0.5em;
   color: black;
   margin: 0 auto;
   background-color: #F3F3F3;
 }
-.wp-block-rs-blockmanialab-testimonial .stars {
+.wp-block-tk-blockmania-testimonial .stars {
   text-align: center;
   font-size: 2em;
   letter-spacing: 0.5em;
   margin-top: 0.5em;
   color: gold;
 }
-.wp-block-rs-blockmanialab-testimonial .stars select {
+.wp-block-tk-blockmania-testimonial .stars select {
   width: 10em;
 }
-.wp-block-rs-blockmanialab-testimonial .quote {
+.wp-block-tk-blockmania-testimonial .quote {
   width: 100%;
   padding: 1.5em;
   line-height: 1.5;
 }
-.wp-block-rs-blockmanialab-testimonial .quote-profile {
+.wp-block-tk-blockmania-testimonial .quote-profile {
   background-color: white;
   border-radius: 0 0 0.5em 0.5em;
   padding: 1em;
@@ -34,7 +34,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.wp-block-rs-blockmanialab-testimonial .quote-profile .photo img {
+.wp-block-tk-blockmania-testimonial .quote-profile .photo img {
   width: 75px;
   height: 75px;
   -o-object-fit: cover;
@@ -42,12 +42,65 @@
   border-radius: 50%;
   margin-right: 2em;
 }
-.wp-block-rs-blockmanialab-testimonial .quote-profile .author, .wp-block-rs-blockmanialab-testimonial .quote-profile .location {
+.wp-block-tk-blockmania-testimonial .quote-profile .author, .wp-block-tk-blockmania-testimonial .quote-profile .location {
   margin: 0;
   text-align: right;
   font-weight: 700;
 }
-.wp-block-rs-blockmanialab-testimonial .quote-profile .location {
+.wp-block-tk-blockmania-testimonial .quote-profile .location {
+  font-weight: 300;
+  font-size: 0.7em;
+}
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-tk-blockmania-testimonial {
+  border: 0.1em solid #aaaaaa;
+  border-radius: 0.5em;
+  color: black;
+  margin: 0 auto;
+  background-color: #F3F3F3;
+}
+.wp-block-tk-blockmania-testimonial .stars {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 0.5em;
+  margin-top: 0.5em;
+  color: gold;
+}
+.wp-block-tk-blockmania-testimonial .stars select {
+  width: 10em;
+}
+.wp-block-tk-blockmania-testimonial .quote {
+  width: 100%;
+  padding: 1.5em;
+  line-height: 1.5;
+}
+.wp-block-tk-blockmania-testimonial .quote-profile {
+  background-color: white;
+  border-radius: 0 0 0.5em 0.5em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wp-block-tk-blockmania-testimonial .quote-profile .photo img {
+  width: 75px;
+  height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 2em;
+}
+.wp-block-tk-blockmania-testimonial .quote-profile .author, .wp-block-tk-blockmania-testimonial .quote-profile .location {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+.wp-block-tk-blockmania-testimonial .quote-profile .location {
   font-weight: 300;
   font-size: 0.7em;
 }
