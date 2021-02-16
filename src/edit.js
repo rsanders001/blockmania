@@ -11,7 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck, PlainText, InspectorControls } from '@wordpress/block-editor';
+import { SelectControl, PanelBody, PanelRow } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,13 +30,51 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function edit() {
+export default function edit({attributes, setAttributes}) {
+	//let attributes = props.attributes();
+	//let {attributes, setAttributes} = props;
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'BlockmaniaLab – hello from the editor!',
-				'rs-blockmanialab'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<InspectorControls>
+				<PanelBody title="Basic" initalOpen={true}>
+					<PanelRow>
+						<p>Whatever</p>
+					</PanelRow>
+				</PanelBody>
+
+			</InspectorControls>
+			<SelectControl
+				label={ __( 'Select A Rating:' ) }
+				value={ attributes.stars }
+				onChange={ ( stars ) => { setAttributes( { stars } ) } }
+				options={ [
+					{ value: '1', label: '*' },
+					{ value: '2', label: '**' },
+					{ value: '3', label: '***' },
+					{ value: '4', label: '****' },
+					{ value: '5', label: '*****' },
+				] }
+			/>
+				<RichText
+					tagName="div" // The tag here is the element output and editable in the admin
+					value={ attributes.quote } // Any existing content, either from the database or an attribute default
+					allowedFormats={ [ 'core/bold', 'core/italic' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+					onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
+					placeholder="Lorem Ipsum..." // Display this text before any content has been added by the user
+				/>
+			<div className="quote-profile">
+				<div className="photo">
+					<MediaUploadCheck>
+						<MediaUpload
+							allowedTypes={['image']}
+							onSelect={ ( img ) => setAttributes( { imgURL: img.sizes.thumbnail.url } ) }
+							render={ ({open}) => <img src={attributes.imgURL} onClick={open}/>}
+						/>
+					</MediaUploadCheck>
+				</div>
+			</div>
+
+		</div>
 	);
 }

@@ -77,6 +77,22 @@ registerBlockType( 'rs-blockmanialab/testimonial', {
 		__('testimonials'),
 		__('review'), 'rs'],
 
+	attributes: {
+		quote:{
+			type: 'string',
+			source: 'html',
+			selector: '.quote',
+		},
+		stars:{
+			type: 'number',
+			default: 5,
+		},
+		imgURL:{
+			type: 'string',
+			default: 'https://placehold.it/75'
+		},
+	},
+
 	/**
 	 * @see ./edit.js
 	 */
